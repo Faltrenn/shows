@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html-head.html" %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <form class="login card" action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <label>Username</label>
+            <input class="form-control border-input" type="text" name="username" placeholder="Username" required>
+            <label>Senha</label>
+            <input class="form-control border-input" type="password" name="password" placeholder="Senha" required>
+            <input class="btn btn-info btn-fill btn-wd" type="submit" value="Entrar">
+        </form>
+    </div>
+    
+</body>
+</html>

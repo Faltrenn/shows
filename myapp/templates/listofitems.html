@@ -1,0 +1,47 @@
+{% if list %}
+    <div>
+        <div class="card">
+            <div class="header">
+                <h4 class="title">
+                    Resultados
+                </h4>
+            </div>
+            
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Local</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Data</th>
+                        {% if user.is_authenticated %}
+                            <th colspan="2">Ações</th>
+                        {% endif %}
+                    </thead>
+                    <tbody>
+                        {% for show in list %}
+                        <tr>
+                            <td>{{show.id}}</td>
+                            <td>{{show.banda}}</td>
+                            <td>{{show.local}}</td>
+                            <td>{{show.cidade}}</td>
+                            <td>{{show.estado}}</td>
+                            <td>{{show.data}}</td>
+                            {% if user.is_authenticated %}
+                                <td>
+                                    <a href="{% url 'edit' show.id %}">Editar</a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'delete' show.id %}">Deletar</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}

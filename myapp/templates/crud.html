@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/crud.css' %}">
+<div>
+    <div class="add-area">
+        <p>Adicionar show</p>
+        <a href="{% url 'create' %}">+</a>
+    </div>
+    {% include 'listofitems.html' with list=shows %}
+</div>
+
+{% endblock %}

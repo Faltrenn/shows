@@ -1,0 +1,23 @@
+html, body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    width: 75%;
+    height: 425px;
+    flex-direction: column;
+    background-color: #f4f3ef;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+form label {
+    width: 100%;
+}

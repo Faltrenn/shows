@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div>
+    <form>
+        <div class="input-group no-border">
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name="bandaName" class="form-control" placeholder="Nome da banda...">
+            </form>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <i class="nc-icon nc-zoom-split"></i>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% if request.GET and not showsFounded %}
+        <script>
+            alert("Nenhum show com essa banda foi encontrado!")
+        </script>
+    {% endif %}
+
+    {% include "listofitems.html" with list=showsFounded %}
+
+    </div>
+</div>
+
+{% endblock %}

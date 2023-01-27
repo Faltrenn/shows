@@ -1,0 +1,23 @@
+.add-area {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.add-area p {
+    margin: 5px;
+}
+
+.add-area a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22pt;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+}

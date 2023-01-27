@@ -1,0 +1,39 @@
+{% load static %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html-head.html" %}
+    <link rel="stylesheet" href="{% static 'css/showForm.css' %}">
+</head>
+
+<body>
+    <form class="card" action="" method="POST">
+        {% csrf_token %}
+        <label>Nome</label>
+        <input class="form-control border-input" type="text" value="{{show.banda}}" name="banda" placeholder="Nome da banda" required>
+        <label>Local</label>
+        <input class="form-control border-input" type="text" value="{{show.local}}" name="local" placeholder="Local" required>
+        <label>Estado</label>
+        <select class="form-control border-input" name="estado" id="estado" required>
+            {% for estado in estados %}
+                <option {% if estado == show.estado %} selected {% endif %} value="{{estado}}">{{estado}}</option>
+            {% endfor %}
+        </select>
+        <label>Cidade</label>
+        <select class="form-control border-input" name="cidade" id="cidade" required>
+            {% for cidade in cidades %}
+                <option {% if cidade == show.cidade %} selected {% endif %} value="{{cidade}}">{{cidade}}</option>
+            {% endfor %}
+        </select>
+        <label>Data</label>
+        <input class="form-control border-input" type="date" value="{{show.data}}" name="data" required>
+        <input class="btn btn-info btn-fill btn-wd" type="submit" value="Criar">
+        
+        <script src="{% static 'js/city-selector.js' %}"></script>
+    </form>
+
+</body>
+
